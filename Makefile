@@ -9,16 +9,10 @@ SRC=\
 ./teleportation/teleportation.py \
 ./teleportation/tests.py
 
-TESTS = \
-teleportation/test_teleportation.py \
-oracles/test_oracles.py \
-bb84/test_bb84.py
-
 all: tests
 
-tests: $(TESTS)
-	coverage run -m pytest $(TESTS)
-
+tests:
+	.venv/bin/pytest
 
 pylint:
 	pylint --good-names "a,b,c,d,f,g,i,j,o,p,ph,r,s,s1,s2,t,th,v,x,y,z" $(SRC)

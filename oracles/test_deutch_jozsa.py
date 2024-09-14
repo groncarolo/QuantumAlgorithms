@@ -11,7 +11,7 @@ from deutch_jozsa import deutch_jozsa
 def test_const_0():
     print()
 
-    def f(x):
+    def f(x, *args):
         return 0
 
     n = 3
@@ -26,7 +26,7 @@ def test_const_0():
 def test_const_1():
     print()
 
-    def f(x):
+    def f(x, *args):
         return 1
 
     n = 3
@@ -41,7 +41,7 @@ def test_const_1():
 def test_f_balanced():
     print()
 
-    def f(x):
+    def f(x, *args):
         q = IntQubit(*x)
         if q.as_int() % 2 == 0:
             return 1

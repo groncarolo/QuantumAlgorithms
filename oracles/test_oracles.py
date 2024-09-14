@@ -23,13 +23,19 @@ def test_7_3():
     xy = matrix_to_qubit(represent(xy))
     print("|xy>={xy}".format(xy=xy))
 
-    r = simplify(oracle(x, y, lambda a: 0))
+    def f0(x, *args):
+        return 0
+
+    r = simplify(oracle(x, y, f0))
     print('Result for constant zero function: r={r}'.format(r=r))
     solution = simplify(
         sqrt(3) / (2 * sqrt(2)) * (Qubit('00') - Qubit('01')) + 1 / (2 * sqrt(2)) * (Qubit('10') - Qubit('11')))
     assert simplify(r - solution) == 0
 
-    r = oracle(x, y, lambda a: 1)
+    def f1(x, *args):
+        return 1
+
+    r = oracle(x, y, f1)
     print('Result for constant one function: r={r}'.format(r=r))
     solution = simplify(
         sqrt(3) / (2 * sqrt(2)) * (Qubit('01') - Qubit('00')) + 1 / (2 * sqrt(2)) * (Qubit('11') - Qubit('10')))

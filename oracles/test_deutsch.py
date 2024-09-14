@@ -7,7 +7,7 @@ from sympy.physics.quantum.represent import represent
 def test_const_0():
     print()
 
-    def f(x):
+    def f(x, *args):
         return 0
 
     r = deutsch(f)
@@ -21,7 +21,7 @@ def test_const_0():
 def test_const_1():
     print()
 
-    def f(x):
+    def f(x, *args):
         return 1
 
     r = deutsch(f)
@@ -35,7 +35,7 @@ def test_const_1():
 def test_f_balanced_0():
     print()
 
-    def f(x):
+    def f(x, *args):
         if x[0] == 0:
             return 1
         else:
@@ -52,7 +52,7 @@ def test_f_balanced_0():
 def test_f_balanced_1():
     print()
 
-    def f(x):
+    def f(x, *args):
         if x[0] == 0:
             return 0
         else:

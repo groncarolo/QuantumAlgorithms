@@ -11,7 +11,7 @@ from grover import grover
 
 def test_grover_1():
     print()
-    def f(x):
+    def f(x, *args):
         x = IntQubit(Qubit(*x)).as_int()
         match x:
             case 0b101:
@@ -28,7 +28,7 @@ def test_grover_1():
 
 def test_grover_2():
     print()
-    def f(x):
+    def f(x, *args):
         x = IntQubit(Qubit(*x)).as_int()
         match x:
             case 0b1101:

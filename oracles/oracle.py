@@ -13,7 +13,7 @@ from util import get_qubit_size
 #            +-----------------+
 # |x, y> goes to |x, y XOR f(x)>
 
-def oracle(x, y, f):
+def oracle(x, y, f, *args):
     """
     Execute and oracle function on |x>*|y> input and return |x>*|y XOR f(x)>
 
@@ -40,7 +40,7 @@ def oracle(x, y, f):
 
         # get integer equivalent so we can XOR easily
         y_as_int = IntQubit(Qubit(*y)).as_int()
-        xor = y_as_int ^ f(x)
+        xor = y_as_int ^ f(x, *args)
 
         # nqubits=y_dim keeps the resulting qubit the correct size
         r += TensorProduct(ee * Qubit(*x), Qubit(IntQubit(xor, nqubits=y_dim)))

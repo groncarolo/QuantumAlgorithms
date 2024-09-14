@@ -67,7 +67,7 @@ def test_find_c_2():
 
 def test_simon_1():
     print()
-    def f(x):
+    def f(x, *args):
         x = IntQubit(Qubit(*x)).as_int()
         match x:
             case 0b000:
@@ -105,7 +105,7 @@ def test_simon_1():
 def test_simon_2():
     print()
 
-    def f(x):
+    def f(x, *args):
         x = IntQubit(Qubit(*x)).as_int()
         match x:
             case 0b000:

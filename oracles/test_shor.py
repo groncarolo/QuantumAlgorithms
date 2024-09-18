@@ -45,10 +45,3 @@ def test_shor_4():
      print("factors = {factors}".format(factors=factors))
      truth = [3, 7]
      assert truth == sorted(factors)
-
-def test_shor_5():
-    N = 3*7
-    factors = shor(N, 2)
-    print("factors = {factors}".format(factors=factors))
-    truth = [3, 7]
-    assert truth == sorted(factors)

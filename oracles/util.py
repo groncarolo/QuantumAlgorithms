@@ -1,5 +1,6 @@
 """ This module implements some utilities"""
 
+from sympy import preorder_traversal
 from sympy.physics.quantum.qubit import Qubit
 from sympy.physics.quantum.gate import HadamardGate
 
@@ -8,13 +9,9 @@ def get_qubit_size(q):
     """
     Returns a qubit size
     """
-    if isinstance(q, Qubit):
-        return q.nqubits
-    for expr in q.args:
-        for e in expr.args:
-            if isinstance(e, Qubit):
-                return e.nqubits
-    return -1
+    for arg in preorder_traversal(q):
+        if isinstance(arg, Qubit):
+            return arg.nqubits
 
 
 def hn(n, start=0):
@@ -31,6 +28,9 @@ def get_sub_state(state, start, stop):
     """
     Returns a substate
     """
+    if isinstance(state, Qubit):
+        return Qubit(*state.qubit_values[start:stop])
+
     ret = 0
     for expr in state.args:
         ee = 1

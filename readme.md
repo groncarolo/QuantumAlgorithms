@@ -69,6 +69,23 @@ Constant  one -> -|0*n>*|->
 Balanced 0->1 ->  NOT (+|0*n>*|->) and NOT (-|0*n>*|->)
 ```
 
+## Berstein Vazirani
+```
+The problem:
+We have a function f {0,1}^n -> {0,1}
+f(x) = s dot x
+s is a n-bit string
+s dot x = s_n-1x_n-1 + ... + s1x1 + s0x0
+We want to find s = s_n-1...s1s0
+
+The Solution:
+                     +-----------------+
+  |x>  |0>-/n--H*n---|                 |--/n--H*n---M |x>
+                     |       U_f       |
+  |y>  |1>---H-------|                 |------------  |y XOR f(x)>
+                     +-----------------+
+```
+
 ## Grover
 ```
 The problem:

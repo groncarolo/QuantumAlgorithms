@@ -8,6 +8,7 @@ SRC=\
 ./oracles/oracle.py \
 ./oracles/shor.py \
 ./oracles/deutsch.py \
+./oracles/berstein_vazirani.py \
 ./bb84/bb84.py
 
 all: tests

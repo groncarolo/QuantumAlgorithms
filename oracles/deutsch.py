@@ -5,7 +5,7 @@ from sympy.physics.quantum import TensorProduct
 from sympy.physics.quantum.gate import HadamardGate
 from sympy.physics.quantum.represent import represent
 
-from oracle import oracle
+from oracles.oracle import oracle
 
 
 

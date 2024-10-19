@@ -10,8 +10,8 @@ from sympy.physics.quantum.qubit import Qubit, matrix_to_qubit, IntQubit, measur
 from sympy.physics.quantum import TensorProduct
 from sympy.physics.quantum.represent import represent
 from sympy.physics.quantum.qft import IQFT
-from oracle import oracle
-from util import hn
+from oracles.oracle import oracle
+from util.util import hn
 
 
 def fan(x, N, a):

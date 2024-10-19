@@ -2,7 +2,7 @@ from sympy.physics.quantum.qapply import qapply
 from sympy.physics.quantum.qubit import Qubit
 from sympy.physics.quantum.qft import QFT
 
-from qft import qft
+from qft.qft import qft
 def test_dft():
     n = 4
     circ = qft(0, n)

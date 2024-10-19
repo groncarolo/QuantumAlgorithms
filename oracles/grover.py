@@ -5,8 +5,8 @@ from sympy.physics.quantum.qubit import Qubit, matrix_to_qubit, measure_partial
 from sympy.physics.quantum import TensorProduct
 from sympy.physics.quantum.gate import HadamardGate
 from sympy.physics.quantum.represent import represent
-from util import hn, get_sub_state
-from oracle import oracle
+from util.util import hn, get_sub_state
+from oracles.oracle import oracle
 
 
 def inversion_about_mean(state):

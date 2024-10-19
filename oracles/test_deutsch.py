@@ -1,4 +1,4 @@
-from deutsch import deutsch
+from oracles.deutsch import deutsch
 from sympy.physics.quantum.qubit import Qubit, matrix_to_qubit
 from sympy import sqrt
 from sympy.physics.quantum import TensorProduct

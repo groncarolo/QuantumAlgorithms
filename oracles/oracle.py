@@ -3,7 +3,7 @@
 from sympy.physics.quantum.qubit import Qubit, matrix_to_qubit, IntQubit
 from sympy.physics.quantum import TensorProduct
 from sympy.physics.quantum.represent import represent
-from util import get_qubit_size
+from util.util import get_qubit_size
 
 
 #            +-----------------+

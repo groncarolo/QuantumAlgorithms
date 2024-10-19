@@ -1,8 +1,7 @@
-from simon import find_req_on_f, find_c
-from simon import simon
+from oracles.simon import find_req_on_f, find_c, simon
 from sympy.physics.quantum import TensorProduct
 from sympy.physics.quantum.represent import represent
-from sympy.physics.quantum.qubit import Qubit, IntQubit, matrix_to_qubit, measure_all, measure_partial
+from sympy.physics.quantum.qubit import Qubit, IntQubit, matrix_to_qubit
 
 from sympy import simplify
 

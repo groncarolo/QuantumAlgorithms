@@ -1,4 +1,4 @@
-from berstein_vazirani import berstein_vazirani
+from oracles.berstein_vazirani import berstein_vazirani
 from sympy import preorder_traversal
 from sympy.physics.quantum.qubit import Qubit,  measure_partial_oneshot
 import numpy as np

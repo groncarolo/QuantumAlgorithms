@@ -1,28 +1,11 @@
 """Module providing BB84 code"""
 
-import numpy as np
 from sympy.physics.quantum.gate import HadamardGate
 from sympy.physics.quantum.qapply import qapply
 from sympy.physics.quantum.qubit import Qubit
-from measure_all import measure_all_oneshot
 
-
-def get_random_bases(size=10):
-    """
-    Get a collection of size random bases between X and Z
-
-    :param int size: number of bases
-    """
-    return np.random.choice(['X', 'Z'], size=(size,))
-
-
-def get_random_bits(size=10):
-    """
-    Get a collection of size random bits
-
-    :param int size: number of bits
-    """
-    return np.random.choice([0, 1], size=(size,))
+from util.measure_all import measure_all_oneshot
+from util.util import get_random_bases
 
 
 def bb84_alice_part(get_alice_bits_fx, get_alice_bases_fx, gen_bit_size):

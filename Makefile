@@ -15,11 +15,11 @@ SRC=\
 all: tests
 
 tests:
-	.venv/bin/pytest
+	PYTHONPATH=$(shell pwd) .venv/bin/pytest
 
 pylint:
-	pylint --good-names "a,b,c,d,f,g,i,j,o,p,ph,r,s,s1,s2,t,th,v,x,y,z,N" $(SRC)
+	PYTHONPATH=$(shell pwd); pylint --good-names "a,b,c,d,f,g,i,j,o,p,ph,r,s,s1,s2,t,th,v,x,y,z,N" $(SRC)
 
 flake:
-	flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-	flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+	PYTHONPATH=$(shell pwd); flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+	PYTHONPATH=$(shell pwd); flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics

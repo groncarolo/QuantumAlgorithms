@@ -5,8 +5,8 @@ from sympy.physics.quantum import TensorProduct
 from sympy.physics.quantum.gate import HadamardGate
 from sympy.physics.quantum.represent import represent
 
-from oracle import oracle
-from util import hn
+from oracles.oracle import oracle
+from util.util import hn
 
 
 def deutsch_jozsa(f, n):

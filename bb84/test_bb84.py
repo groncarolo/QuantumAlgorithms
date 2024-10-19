@@ -1,9 +1,7 @@
-from bb84 import bb84, get_random_bases, get_random_bits
-from sympy.physics.quantum.qubit import Qubit
-from sympy import sqrt
+from bb84.bb84 import bb84
 import numpy as np
-import math
-from sympy.physics.quantum.qubit import IntQubit, Qubit, measure_all_oneshot, measure_all, IntQubit, qubit_to_matrix
+
+from ..util.util import get_random_bits, get_random_bases, zero, one, minus, plus
 
 
 def test_bb84():
@@ -19,7 +17,7 @@ def test_bb84():
         return ['Z', 'X', 'X', 'Z', 'Z', 'X', 'Z', 'X', 'Z']
 
     private_key, _, _ = bb84(get_alice_bits, get_alice_bases, get_bob_bases)
-    truth = [Qubit(0), '-', Qubit(0), Qubit(1), '-', Qubit(0), '-', '-', Qubit(1)]
+    truth = [zero, '-', zero, one, '-', zero, '-', '-', one]
     assert private_key == truth
 
 
@@ -28,7 +26,7 @@ def test_bb84_1():
     np.random.seed(10)
 
     private_key, _, _ = bb84(get_random_bits, get_random_bases, get_random_bases)
-    truth = [Qubit(1), Qubit(1), '-', Qubit(1), '-', Qubit(1), Qubit(1), Qubit(0), '-', Qubit(1)]
+    truth = [one, one, '-', one, '-', one, one, zero, '-', one]
     assert private_key == truth
 
 
@@ -44,10 +42,6 @@ def test_bb84_6_25():
     def get_bob_bases(*args):
         return ['Z', 'X', 'X', 'Z', 'Z', 'X', 'Z', 'X', 'Z']
 
-    plus = Qubit(0) / sqrt(2) + Qubit(1) / sqrt(2)
-    minus = Qubit(0) / sqrt(2) - Qubit(1) / sqrt(2)
-    zero = Qubit(0)
-    one = Qubit(1)
 
     private_key, alice_sent, _ = bb84(get_alice_bits, get_alice_bases, get_bob_bases)
     truth = [minus, plus, zero, one, zero, plus, plus, minus, minus]
@@ -67,8 +61,6 @@ def test_bb84_6_26():
         return ['Z', 'Z', 'Z', 'Z', 'Z', 'X', 'X', 'Z', 'Z']
 
     private_key, _, _ = bb84(get_alice_bits, get_alice_bases, get_bob_bases)
-    zero = Qubit(0)
-    one = Qubit(1)
     truth = ['-', '-', zero, '-', zero, '-', one, '-', one]
     assert private_key == truth
 

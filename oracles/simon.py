@@ -4,8 +4,8 @@ from sympy.physics.quantum.qubit import Qubit, matrix_to_qubit, measure_partial
 from sympy import Symbol, preorder_traversal, Xor, Or, And, satisfiable, Not, simplify
 from sympy.physics.quantum import TensorProduct
 from sympy.physics.quantum.represent import represent
-from oracle import oracle
-from util import hn
+from oracles.oracle import oracle
+from util.util import hn
 
 
 def find_req_on_f(c, ys):

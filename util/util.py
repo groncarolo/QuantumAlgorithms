@@ -1,8 +1,32 @@
-""" This module implements some utilities"""
-
+import numpy as np
+from sympy import sqrt
 from sympy import preorder_traversal
 from sympy.physics.quantum.qubit import Qubit
 from sympy.physics.quantum.gate import HadamardGate
+
+plus = Qubit(0) / sqrt(2) + Qubit(1) / sqrt(2)
+minus = Qubit(0) / sqrt(2) - Qubit(1) / sqrt(2)
+zero = Qubit(0)
+one = Qubit(1)
+unkn = '-'
+
+
+def get_random_bases(size=10):
+    """
+    Get a collection of size random bases between X and Z
+
+    :param int size: number of bases
+    """
+    return np.random.choice(['X', '+'], size=(size,))
+
+
+def get_random_bits(size=10):
+    """
+    Get a collection of size random bits
+
+    :param int size: number of bits
+    """
+    return np.random.choice([0, 1], size=(size,))
 
 
 def get_qubit_size(q):

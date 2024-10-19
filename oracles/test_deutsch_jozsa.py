@@ -1,11 +1,9 @@
-from sympy.physics.quantum.qapply import qapply
-from sympy.physics.quantum.qubit import Qubit, IntQubit, matrix_to_qubit, measure_partial
+from sympy.physics.quantum.qubit import Qubit, IntQubit, matrix_to_qubit
 from sympy import sqrt
 from sympy.physics.quantum import TensorProduct
 from sympy.physics.quantum.represent import represent
 
-from oracle import oracle
-from deutsch_jozsa import deutsch_jozsa
+from oracles.deutsch_jozsa import deutsch_jozsa
 
 
 def test_const_0():

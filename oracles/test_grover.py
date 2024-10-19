@@ -1,12 +1,6 @@
-from simon import find_req_on_f, find_c
-from simon import simon
-from sympy.physics.quantum import TensorProduct
-from sympy.physics.quantum.represent import represent
-from sympy.physics.quantum.qubit import Qubit, IntQubit, matrix_to_qubit, measure_all, measure_partial
-from sympy import sqrt, simplify, preorder_traversal, Rational, Mul
-
-from sympy import simplify
-from grover import grover
+from sympy.physics.quantum.qubit import Qubit, IntQubit
+from sympy import sqrt
+from oracles.grover import grover
 
 
 def test_grover_1():

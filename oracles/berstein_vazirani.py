@@ -1,13 +1,12 @@
 """ This module implements Berstein-Vairani algorithm """
-import numpy as np
 from sympy.physics.quantum.qapply import qapply
 from sympy.physics.quantum.qubit import Qubit, matrix_to_qubit
 from sympy.physics.quantum import TensorProduct
 from sympy.physics.quantum.gate import HadamardGate
 from sympy.physics.quantum.represent import represent
 
-from oracle import oracle
-from util import hn
+from oracles.oracle import oracle
+from util.util import hn
 
 
 def fbv(x, s):

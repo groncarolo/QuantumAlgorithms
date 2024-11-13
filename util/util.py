@@ -1,13 +1,19 @@
 import numpy as np
-from sympy import sqrt
+from sympy import sqrt, simplify, I
 from sympy import preorder_traversal
+from sympy.abc import j
+from sympy.physics.quantum import qapply
 from sympy.physics.quantum.qubit import Qubit
 from sympy.physics.quantum.gate import HadamardGate
+from sympy.physics.quantum.dagger import Dagger
+from sympy.physics.quantum import Bra,Ket,qapply
 
 plus = Qubit(0) / sqrt(2) + Qubit(1) / sqrt(2)
 minus = Qubit(0) / sqrt(2) - Qubit(1) / sqrt(2)
 zero = Qubit(0)
 one = Qubit(1)
+i_state = Qubit(0) / sqrt(2) + I*Qubit(1) / sqrt(2)
+i_minus_state = Qubit(0) / sqrt(2) - I*Qubit(1) / sqrt(2)
 unkn = '-'
 
 
@@ -66,3 +72,10 @@ def get_sub_state(state, start, stop):
         # throw y part and just keep x
         ret += ee * Qubit(*qbit.qubit_values[start:stop])
     return ret
+
+
+def change_basis(q, new_base):
+    a = qapply(Dagger(new_base[0]) * q) * Qubit('0')
+    b = qapply(Dagger(new_base[1]) * q) * Qubit('1')
+
+    return a + b

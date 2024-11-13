@@ -42,7 +42,6 @@ def test_bb84_6_25():
     def get_bob_bases(*args):
         return ['Z', 'X', 'X', 'Z', 'Z', 'X', 'Z', 'X', 'Z']
 
-
     private_key, alice_sent, _ = bb84(get_alice_bits, get_alice_bases, get_bob_bases)
     truth = [minus, plus, zero, one, zero, plus, plus, minus, minus]
     assert truth == alice_sent
@@ -74,7 +73,7 @@ def test_bb84_eavesdropping_probability_detection():
     private_key, _, eavesdropped = bb84(get_random_bits, get_random_bases, get_random_bases,
                                         gen_bit_size=key_size + check_size, eavesdropping=True, check_size=check_size)
     prob = 1. - (3 / 4) ** check_size
-    print(f"prob to catch Eve: {prob} with {check_size} bits" )
+    print(f"prob to catch Eve: {prob} with {check_size} bits")
     print(f"Eve was caught {eavesdropped} times")
 
     usable_pk = sum(1 if x != '-' else 0 for x in private_key)

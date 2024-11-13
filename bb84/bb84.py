@@ -1,11 +1,9 @@
 """Module providing BB84 code"""
 
-from sympy.physics.quantum.gate import HadamardGate
-from sympy.physics.quantum.qapply import qapply
 from sympy.physics.quantum.qubit import Qubit
 
 from util.measure_all import measure_all_oneshot
-from util.util import get_random_bases
+from util.util import get_random_bases, change_basis, minus, plus
 
 
 def bb84_alice_part(get_alice_bits_fx, get_alice_bases_fx, gen_bit_size):
@@ -28,7 +26,7 @@ def bb84_alice_part(get_alice_bits_fx, get_alice_bases_fx, gen_bit_size):
     for bit, base in zip(alice_bits, alice_bases):
         qubit = Qubit(bit)
         if base == 'X':
-            qubit = qapply(HadamardGate(0) * qubit)
+            qubit = change_basis(qubit, (plus, minus))
         alice_sent.append(qubit)
     alice_sent = alice_sent
     print(f"Alice sent: {alice_sent}")
@@ -48,7 +46,7 @@ def bb84_eve_part(alice_sent, gen_bit_size):
         qq = q
         # change base if needed
         if bb == 'X':
-            qq = qapply(HadamardGate(0) * q)
+            qq = change_basis(q, (plus, minus))
 
         m = measure_all_oneshot(qq)
         eavesdropped.append(m)
@@ -74,7 +72,7 @@ def bb84_bob_part(get_bob_bases_fx, gen_bit_size, alice_sent, alice_bases):
         qq = q
         # change base if needed
         if bb == 'X':
-            qq = qapply(HadamardGate(0) * q)
+            qq = change_basis(q, (plus, minus))
 
         m = measure_all_oneshot(qq)
         private_key.append(m)

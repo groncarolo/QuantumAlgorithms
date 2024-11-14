@@ -30,6 +30,37 @@ def test_bb84_1():
     assert private_key == truth
 
 
+def test_bb84_2():
+    print()
+
+    def get_alice_bits(*args):
+        return [0, 1, 1,
+                0, 1, 1,
+                1, 0, 1,
+                0, 1, 0]
+
+    def get_alice_bases(*args):
+        return ['Z', 'Z', 'X',
+                'Z', 'Z', 'Z',
+                'X', 'Z', 'X',
+                'X', 'X', 'Z',
+                ]
+
+    def get_bob_bases(*args):
+        return ['X', 'Z', 'X',
+                'X', 'Z', 'X',
+                'Z', 'Z', 'X',
+                'X', 'X', 'Z']
+
+    private_key, _, _ = bb84(get_alice_bits, get_alice_bases, get_bob_bases)
+    truth = ['-', one, one,
+             '-', one, '-',
+             '-', zero, one,
+             zero, one, zero
+             ]
+    assert private_key == truth
+
+
 def test_bb84_6_25():
     print()
 

@@ -2,7 +2,6 @@ SRC=\
 ./cloning/no_cloning_theorem.py \
 ./teleportation/teleportation.py \
 ./oracles/deutsch_jozsa.py \
-./oracles/util.py \
 ./oracles/grover.py \
 ./oracles/simon.py \
 ./oracles/oracle.py \
@@ -10,6 +9,8 @@ SRC=\
 ./oracles/deutsch.py \
 ./oracles/berstein_vazirani.py \
 ./bb84/bb84.py \
+./b92/b92.py \
+./util/util.py \
 ./qft/qft.py
 
 all: tests

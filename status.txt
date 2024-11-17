@@ -1,0 +1,14 @@
+b92                       ok - final
+bb84                      ok - final
+cloning                   imported - need-test; re-edit
+oracles                   imported - need-test; re-edit
+berstein_vazirani.py      imported - need-test; re-edit
+deutsch_jozsa.py          imported - need-test; re-edit
+deutsch.py                imported - need-test; re-edit
+grover.py                 imported - need-test; re-edit
+oracle.py                 imported - need-test; re-edit
+shor.py                   imported - need-test; re-edit
+simon.py                  imported - need-test; re-edit
+qft                       imported - need-test; re-edit
+teleportation             imported - need-test; re-edit
+util                      ok - final

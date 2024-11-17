@@ -1,8 +1,6 @@
 import numpy as np
-from sympy import sqrt, simplify, I
+from sympy import sqrt, I
 from sympy import preorder_traversal
-from sympy.abc import j
-from sympy.physics.quantum import qapply
 from sympy.physics.quantum.qubit import Qubit
 from sympy.physics.quantum.gate import HadamardGate
 from sympy.physics.quantum.dagger import Dagger

@@ -4,3 +4,8 @@ __pycache__/
 *.swo
 .coverage
 .idea
+export
+.pytest_cache/
+.ipynb_checkpoints/
+.venv/
+status.txt

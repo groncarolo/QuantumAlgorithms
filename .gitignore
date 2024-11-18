@@ -9,3 +9,4 @@ export
 .ipynb_checkpoints/
 .venv/
 status.txt
+.vscode

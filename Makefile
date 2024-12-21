@@ -14,6 +14,7 @@ flake:
 	flake8_nb shor.ipynb
 	flake8_nb simon.ipynb
 	flake8_nb teleportation.ipynb
+	flake8_nb machine_learning/squared_distance_classifier.ipynb
 	flake8 oracle.py
 	flake8 test_bb94.py
 	flake8 test_deutsch_jozsa.py

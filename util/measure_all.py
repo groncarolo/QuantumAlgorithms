@@ -3,7 +3,7 @@ import math
 from sympy.physics.quantum.qubit import qubit_to_matrix, IntQubit, Qubit
 
 
-def measure_all_oneshot(qubit, format='sympy'):
+def measure_all_oneshot(qubit, format="sympy"):
     """Perform a oneshot ensemble measurement on all qubits.
 
     A oneshot measurement is equivalent to performing a measurement on a
@@ -28,19 +28,20 @@ def measure_all_oneshot(qubit, format='sympy'):
         The qubit that the system collapsed to upon measurement.
     """
     import random
+
     m = qubit_to_matrix(qubit)
 
-    if format == 'sympy':
+    if format == "sympy":
         m = m.normalized()
         random_number = random.random()
         total = 0
         result = 0
         for i in m:
-            total += i*i.conjugate()
+            total += i * i.conjugate()
             if total > random_number:
                 break
             result += 1
-        return Qubit(IntQubit(result, nqubits=int(math.log(max(m.shape), 2) + .1)))
+        return Qubit(IntQubit(result, nqubits=int(math.log(max(m.shape), 2) + 0.1)))
     else:
         raise NotImplementedError(
             "This function cannot handle non-SymPy matrix formats yet"

@@ -13,6 +13,7 @@ from util.util import get_qubit_size
 #            +-----------------+
 # |x, y> goes to |x, y XOR f(x)>
 
+
 def oracle(x, y, f, *args):
     """
     Execute and oracle function on |x>*|y> input and return |x>*|y XOR f(x)>
@@ -30,8 +31,8 @@ def oracle(x, y, f, *args):
     r = 0
 
     if isinstance(c, Qubit):
-        x = c.qubit_values[0:c.dimension - y_dim]
-        y = c.qubit_values[c.dimension - y_dim:]
+        x = c.qubit_values[0 : c.dimension - y_dim]
+        y = c.qubit_values[c.dimension - y_dim :]
         # get integer equivalent so we can XOR easily
         y_as_int = IntQubit(Qubit(*y)).as_int()
         xor = y_as_int ^ f(x, *args)
@@ -44,15 +45,14 @@ def oracle(x, y, f, *args):
                     qbit = e
                 else:
                     ee *= e
-            x = qbit.qubit_values[0:qbit.dimension - y_dim]
-            y = qbit.qubit_values[qbit.dimension - y_dim:]
+            x = qbit.qubit_values[0 : qbit.dimension - y_dim]
+            y = qbit.qubit_values[qbit.dimension - y_dim :]
 
             # get integer equivalent so we can XOR easily
             y_as_int = IntQubit(Qubit(*y)).as_int()
             xor = y_as_int ^ f(x, *args)
 
             # nqubits=y_dim keeps the resulting qubit the correct size
-            r += TensorProduct(ee * Qubit(*x),
-                               Qubit(IntQubit(xor, nqubits=y_dim)))
+            r += TensorProduct(ee * Qubit(*x), Qubit(IntQubit(xor, nqubits=y_dim)))
 
     return matrix_to_qubit(represent(r))

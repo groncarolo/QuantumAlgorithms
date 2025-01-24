@@ -4,15 +4,15 @@ from sympy import preorder_traversal
 from sympy.physics.quantum.qubit import Qubit
 from sympy.physics.quantum.gate import HadamardGate
 from sympy.physics.quantum.dagger import Dagger
-from sympy.physics.quantum import Bra,Ket,qapply
+from sympy.physics.quantum import Bra, Ket, qapply
 
 plus = Qubit(0) / sqrt(2) + Qubit(1) / sqrt(2)
 minus = Qubit(0) / sqrt(2) - Qubit(1) / sqrt(2)
 zero = Qubit(0)
 one = Qubit(1)
-i_state = Qubit(0) / sqrt(2) + I*Qubit(1) / sqrt(2)
-i_minus_state = Qubit(0) / sqrt(2) - I*Qubit(1) / sqrt(2)
-unkn = '-'
+i_state = Qubit(0) / sqrt(2) + I * Qubit(1) / sqrt(2)
+i_minus_state = Qubit(0) / sqrt(2) - I * Qubit(1) / sqrt(2)
+unkn = "-"
 
 
 def get_random_bases(size=10):
@@ -21,7 +21,7 @@ def get_random_bases(size=10):
 
     :param int size: number of bases
     """
-    return np.random.choice(['X', '+'], size=(size,))
+    return np.random.choice(["X", "+"], size=(size,))
 
 
 def get_random_bits(size=10):
@@ -73,7 +73,7 @@ def get_sub_state(state, start, stop):
 
 
 def change_basis(q, new_base):
-    a = qapply(Dagger(new_base[0]) * q) * Qubit('0')
-    b = qapply(Dagger(new_base[1]) * q) * Qubit('1')
+    a = qapply(Dagger(new_base[0]) * q) * Qubit("0")
+    b = qapply(Dagger(new_base[1]) * q) * Qubit("1")
 
     return a + b
